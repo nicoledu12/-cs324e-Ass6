@@ -1,2 +1,2 @@
-# -cs324e-A6
+# -cs324e-Ass6
 Simulation
