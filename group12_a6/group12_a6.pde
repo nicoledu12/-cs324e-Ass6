@@ -1,5 +1,4 @@
 
-
 Firepit firepit;
 fireButton fb;
 ArrayList<Firepit> smokeParticles;
@@ -8,6 +7,8 @@ ArrayList<SnowFall> SnowFlakes1;
 ArrayList<SnowFall> SnowFlakes2;
 ArrayList<SnowFall> SnowFlakes3;
 ArrayList<SnowFall> SnowFlakes4;
+ArrayList<Firework> fireworks = new ArrayList<Firework>();
+PVector gravity;
 PImage img;
 
  void setup(){
@@ -25,7 +26,8 @@ PImage img;
    SnowFlakes4 = new ArrayList<SnowFall>();
    
    fb = new fireButton(600,390,30,30);
-
+  
+   gravity = new PVector(0, .2);
  }
  
  void draw(){
@@ -35,12 +37,29 @@ PImage img;
    
    
    // Fireworks
-   
+   strokeWeight(6);
+   colorMode(HSB);
+   if (random(0, 1) < 0.04) {
+    Firework f = new Firework(round(random(600, 200)));
+    fireworks.add(f);
+  }
+ 
+  for (int i = fireworks.size() - 1; i >= 0; i--) {
+    if (fireworks.get(i).particles.size() < 1) {
+      fireworks.remove(i);
+    }
+    else {
+      fireworks.get(i).update();
+      fireworks.get(i).show();
+    }
+  }
   
    
    // Snowflakes
+   colorMode(RGB);
+   noStroke();
    
-   for (int i = 0; i < 5; i++) {
+   for (int i = 0; i < 1; i++) {
       SnowFall snow = new SnowFall(0);
       SnowFlakes.add(snow);
     }
@@ -50,7 +69,7 @@ PImage img;
       snow.display();
       }
       
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
       SnowFall snow1 = new SnowFall(width/4);
       SnowFlakes1.add(snow1);
     }
@@ -60,7 +79,7 @@ PImage img;
       snow1.update();
       snow1.display();
       }
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
       SnowFall snow2 = new SnowFall(width/2);
       SnowFlakes2.add(snow2);
     }
@@ -71,7 +90,7 @@ PImage img;
       snow2.display();
       }
       
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
       SnowFall snow3 = new SnowFall(width * 3/4);
       SnowFlakes3.add(snow3);
     }
@@ -81,7 +100,7 @@ PImage img;
       snow3.display();
       }
       
-   for (int i = 0; i < 5; i++) {
+   for (int i = 0; i < 1; i++) {
       SnowFall snow4 = new SnowFall(width);
       SnowFlakes4.add(snow4);
     }

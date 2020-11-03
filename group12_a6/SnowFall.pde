@@ -18,7 +18,7 @@ class SnowFall{
    
    void display(){
     fill (255);
-    ellipse(this.x,this.y,2,2);
+    ellipse(this.x,this.y,4,4);
   }
   
 }
