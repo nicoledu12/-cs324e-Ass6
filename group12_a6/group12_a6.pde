@@ -1,4 +1,5 @@
-
+float prevMouseX;
+float prevMouseY;
 Firepit firepit;
 fireButton fb;
 ArrayList<Firepit> smokeParticles;
@@ -37,7 +38,7 @@ PImage img;
    
    
    // Fireworks
-   strokeWeight(2);
+   strokeWeight(6);
    colorMode(HSB);
    if (random(0, 1) < 0.04) {
     Firework f = new Firework(round(random(600, 200)));
@@ -59,8 +60,10 @@ PImage img;
    colorMode(RGB);
    noStroke();
    
+float mouseVX = mouseX - prevMouseX;
+   float mouseVY = mouseY - prevMouseY;
    for (int i = 0; i < 1; i++) {
-      SnowFall snow = new SnowFall(0);
+      SnowFall snow = new SnowFall(0, mouseVX, mouseVY);
       SnowFlakes.add(snow);
     }
     for (int i = SnowFlakes.size() - 1; i >= 0; i--) {
@@ -70,7 +73,7 @@ PImage img;
       }
       
     for (int i = 0; i < 1; i++) {
-      SnowFall snow1 = new SnowFall(width/4);
+      SnowFall snow1 = new SnowFall(width/4, mouseVX, mouseVY);
       SnowFlakes1.add(snow1);
     }
     
@@ -80,7 +83,7 @@ PImage img;
       snow1.display();
       }
     for (int i = 0; i < 1; i++) {
-      SnowFall snow2 = new SnowFall(width/2);
+      SnowFall snow2 = new SnowFall(width/2, mouseVX, mouseVY);
       SnowFlakes2.add(snow2);
     }
     
@@ -91,7 +94,7 @@ PImage img;
       }
       
     for (int i = 0; i < 1; i++) {
-      SnowFall snow3 = new SnowFall(width * 3/4);
+      SnowFall snow3 = new SnowFall(width * 3/4, mouseVX, mouseVY);
       SnowFlakes3.add(snow3);
     }
     for (int i = SnowFlakes3.size() - 1; i >= 0; i--) {
@@ -101,7 +104,7 @@ PImage img;
       }
       
    for (int i = 0; i < 1; i++) {
-      SnowFall snow4 = new SnowFall(width);
+      SnowFall snow4 = new SnowFall(width, mouseVX, mouseVY);
       SnowFlakes4.add(snow4);
     }
     for (int i = SnowFlakes4.size() - 1; i >= 0; i--) {
@@ -109,7 +112,8 @@ PImage img;
       snow4.update();
       snow4.display();
       }
-   
+   prevMouseX = mouseX; 
+   prevMouseY = mouseY;
    // Ground
    rectMode(CENTER);
    fill(13,44,42);
