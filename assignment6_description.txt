@@ -1,0 +1,13 @@
+Francisco Cid, Michael Holzem, Nicole Du
+Group 12
+Assignment 6
+CS 324E
+11/04/2020
+
+
+Assignment 6 is our Simulation Project, in which we made a particle system that is influenced by different factors such as gravity. We implemented multiple classes in which particles will interact with each other differently. One class can implement particles that avoid the mouse (SnowFall), while another one simulates particles being created and then falling due to gravity and slowly disappearing (Fireworks). Our scene is a snowy evening scene. In this scene we have a firepit off to the right hand side with billowing smoke that pops off sparks when clicked, a dazzling display of colorful fireworks in the sky, and snow fall that blows around with movement of the mouse. The scene has no definite end loops continuously.  
+
+Each object: SnowFall, Fireworks, and Firepit have classes as it makes it easier to apply large batch transformations such as display( ) and update( ) in the main draw file. 
+
+Francisco worked primarily on the transformations taking place on the snow class. Nicole worked directly with the firework objects and how they exploded. Finally, Michael worked on the firepit class and the scene design. Each member has also gone through and made minor adjustments to the program as they see fit. 
+
