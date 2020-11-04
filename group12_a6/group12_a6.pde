@@ -38,7 +38,7 @@ PImage img;
    
    
    // Fireworks
-   strokeWeight(6);
+   strokeWeight(2);
    colorMode(HSB);
    if (random(0, 1) < 0.04) {
     Firework f = new Firework(round(random(440, 200)));
